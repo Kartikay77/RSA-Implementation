@@ -12,7 +12,7 @@ It provides a simple way to generate keys, encrypt plaintext, and decrypt cipher
 
 ---
 
-## ⚙ Features
+## Features
 - Generates **public and private keys**.  
 - Encrypts plaintext messages using the public key.  
 - Decrypts ciphertext back to plaintext using the private key.  
