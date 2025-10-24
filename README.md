@@ -1,60 +1,72 @@
-# RSA-Implementation
-# RSA Encryption & Decryption System 
+# 🔐 RSA-Implementation
+A minimal **RSA Encryption & Decryption** system in Python.  
+Implements RSA **key generation**, **encryption**, and **decryption**, with a simple test harness and file-based input.
 
-This project implements the **RSA encryption and decryption algorithm** in Python.  
-It provides a simple way to generate keys, encrypt plaintext, and decrypt ciphertext, demonstrating the fundamentals of public-key cryptography.  
-
----
-
-##  Project Structure
-- **rsa.py** → Core implementation of RSA (key generation, encryption, decryption).  
-- **test.py** → Script to run and validate the RSA system with sample inputs.
+![Screenshot](https://github.com/Kartikay77/RSA-Implementation/blob/main/RSA.png)
 
 ---
 
-## Features
-- Generates **public and private keys**.  
-- Encrypts plaintext messages using the public key.  
-- Decrypts ciphertext back to plaintext using the private key.  
-- Demonstrates secure communication via asymmetric encryption.
+## 📦 Project Structure
+- `rsa.py` — Core RSA functions (keygen, encrypt, decrypt)
+- `test.py` — Runner that loads inputs, generates keys, encrypts & decrypts messages
+- `input.txt` — Sample input (primes + messages)
 
 ---
 
-##  How to Run
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/rsa-encryption.git
-   cd rsa-encryption
-2. Run the test file:
-   python test.py
-3. You’ll see:
-Generated RSA keys
-Encrypted ciphertext
-Decrypted plaintext
+## ✅ Features
+- Generates **public (e, n)** and **private (d, n)** keys
+- Encrypts / decrypts integer messages
+- Simple file-driven testing for quick verification
+
+---
+
+## 📝 Input Format (`input.txt`)
+Line 1: two primes `p q`  
+Next 5 lines: one integer **message** per line to encrypt/decrypt.
+
+**Example**
+67 83
+24
+29
+31
+16
+13
 
 
---
- Example Output
+> ⚠️ **Mac users (TextEdit)**: Use **Format → Make Plain Text** so `input.txt` is not saved as RTF.
 
- Public Key: (e, n)
-Private Key: (d, n)
+---
 
-Plaintext:  Hello RSA!
-Encrypted:  30294820394823
-Decrypted:  Hello RSA!
+## 🚀 How to Run
 
---
 
-Background
-RSA (Rivest–Shamir–Adleman) is a widely used public-key cryptosystem for secure data transmission.
-It works by generating two keys:
-Public Key (for encryption, shared openly)
-Private Key (for decryption, kept secret)
-Security is based on the difficulty of factoring large prime numbers.
+# 1) Clone (or open the folder if you already have it)
+```
+git clone https://github.com/Kartikay77/RSA-Implementation.git
+cd RSA-Implementation
+```
+# 2) Ensure input.txt exists (see format above)
 
---
+# 3) Run the test harness
+```
+python3 test.py -i input.txt
+```
 
-Future Improvements
-Add support for larger key sizes for stronger encryption.
-Implement padding schemes (e.g., PKCS#1) for enhanced security.
-Build a CLI or Web interface for user-friendly encryption/decryption.
+# 🧪 Example Output
+p: 67, q: 83, phi: 5412, pu: (5561, 13), pr: (5561, 1249), message: 24, encrypted: 3658, decrypted: 24
+p: 67, q: 83, phi: 5412, pu: (5561, 13), pr: (5561, 1249), message: 29, encrypted: 1838, decrypted: 29
+p: 67, q: 83, phi: 5412, pu: (5561, 13), pr: (5561, 1249), message: 31, encrypted: 87,   decrypted: 31
+p: 67, q: 83, phi: 5412, pu: (5561, 13), pr: (5561, 1249), message: 16, encrypted: 2600, decrypted: 16
+p: 67, q: 83, phi: 5412, pu: (5561, 13), pr: (5561, 1249), message: 13, encrypted: 928,  decrypted: 13
+
+#  Background
+RSA (Rivest–Shamir–Adleman) is a public-key cryptosystem.
+Public key (e, n) encrypts
+Private key (d, n) decrypts
+Security relies on the difficulty of factoring n = p⋅q for large primes.
+
+# Possible Improvements
+Larger key sizes & probabilistic prime generation
+Padding (e.g., PKCS#1 v1.5, OAEP) for real-world security
+String/byte message support & chunking
+Simple CLI: --gen, --encrypt, --decrypt
